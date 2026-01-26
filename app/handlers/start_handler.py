@@ -82,7 +82,36 @@ async def back_to_main_handler(callback: types.CallbackQuery,
     await state.clear()
 
 
-
+@start_router.callback_query(F.data == 'info')
+async def info_handler(callback: types.CallbackQuery):
+    await callback.answer()
+    await callback.message.answer("""
+        🎓 Курсы английского языка
+    
+        Мы помогаем уверенно говорить на английском и использовать язык в жизни, работе и путешествиях.
+    
+        Что вас ждёт:
+        • уровни обучения: A2 – C1
+        • формат занятий: онлайн / офлайн
+        • небольшие группы — до 6 человек
+        • упор на разговорную практику + понятную грамматику
+        • современные материалы и живые примеры, без скучной теории
+    
+        👨‍🏫 Как проходят занятия:
+        • активное общение с первого урока
+        • разбор реальных жизненных ситуаций
+        • поддержка и обратная связь от преподавателя
+        • комфортная и дружелюбная атмосфера
+    
+        🎁 Для новых студентов:
+        — бесплатное тестирование уровня
+        — пробный урок, чтобы понять формат обучения
+    
+        📸 Больше о занятиях и атмосфере — в нашем Instagram:
+        👉 <a href="https://www.instagram.com/kabiev.ali/?next=%2F" target="_blank" style="font-weight:bold; color:blue;">Instagram</a>
+    """,
+         parse_mode="HTML",
+         reply_markup=start_inline.application_keyboard())
 
 
 
